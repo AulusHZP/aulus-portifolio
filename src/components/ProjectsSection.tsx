@@ -8,22 +8,22 @@ const ProjectsSection = () => {
     {
       name: "BarberBook",
       description: "Sistema de agendamento para barbearias com reconhecimento facial e integração de processos BPMN.",
-      repoUrl: "#"
+      repoUrl: "https://github.com/AulusHZP/barberbook"
     },
     {
       name: "TruckService", 
       description: "Sistema para gestão de serviços de caminhões, incluindo controle de manutenção e histórico de serviços.",
-      repoUrl: "#"
+      repoUrl: "https://github.com/AulusHZP/TruckService"
     },
     {
       name: "Login-Test",
       description: "Projeto simples com foco em testes automatizados de login, autenticação e cobertura de testes com ferramentas modernas.",
-      repoUrl: "#"
+      repoUrl: "https://github.com/AulusHZP/Login-Test"
     },
     {
       name: "Estacionamento",
       description: "Aplicação para controle de estacionamento com diferentes tipos de vagas e regras de cobrança específicas.",
-      repoUrl: "#"
+      repoUrl: "https://github.com/AulusHZP/Estacionamento"
     }
   ];
 
