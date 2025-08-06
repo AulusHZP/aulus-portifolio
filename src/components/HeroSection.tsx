@@ -64,12 +64,12 @@ const HeroSection = () => {
             label="GitHub"
           />
           <SocialButton 
-            href="https://www.linkedin.com/in/aulusbatista" 
+            href="https://www.linkedin.com/in/áulus-batista" 
             icon={<FaLinkedin className="w-6 h-6" />} 
             label="LinkedIn"
           />
           <SocialButton 
-            href="https://www.instagram.com/aulusbatista" 
+            href="https://www.instagram.com/aulushzp" 
             icon={<FaInstagram className="w-6 h-6" />} 
             label="Instagram"
           />

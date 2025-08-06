@@ -15,14 +15,14 @@ const ContactSection = () => {
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/aulusbatista",
+      href: "https://www.linkedin.com/in/áulus-batista",
       icon: <FaLinkedin className="w-8 h-8" />,
       description: "Conecte-se comigo profissionalmente",
       color: "hover:text-blue-400"
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/aulusbatista",
+      href: "https://www.instagram.com/aulushzp",
       icon: <FaInstagram className="w-8 h-8" />,
       description: "Acompanhe minha jornada",
       color: "hover:text-pink-400"

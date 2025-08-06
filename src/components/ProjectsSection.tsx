@@ -119,6 +119,8 @@ const ProjectCard = ({ project, variants }: ProjectCardProps) => {
   return (
     <motion.div variants={variants}>
       <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-card hover:border-primary/30 h-full">
+        
+        {/* Conteúdo principal (fica por cima) */}
         <div className="p-8 relative z-10 h-full flex flex-col">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
@@ -126,28 +128,35 @@ const ProjectCard = ({ project, variants }: ProjectCardProps) => {
             </h3>
             <FaGithub className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
           </div>
-          
+
           <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300 flex-grow mb-6">
             {project.description}
           </p>
-          
+
+          {/* Botão como link funcional */}
           <Button
             variant="outline"
             size="sm"
-            className="self-start border-primary/20 bg-background/10 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
+            className="self-start border-primary/20 bg-background/10 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 z-10"
             asChild
           >
-            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-              🔗 Repositório
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center"
+            >
+              Repositório
             </a>
           </Button>
-          
-          {/* Hover effect background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
         </div>
+
+        {/* Fundo de animação hover — FICA NO FUNDO */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/5 to-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
       </Card>
     </motion.div>
   );
 };
+
 
 export default ProjectsSection;

@@ -1,58 +1,53 @@
-# Welcome to your Lovable project
 
-## Project info
+# Bem-vindo ao projeto Portifólio
 
-**URL**: https://lovable.dev/projects/da421a8f-9d55-4101-a2d7-72a349db984d
+## Informações do Projeto
 
-## How can I edit this code?
+Repositório: [https://github.com/AulusHZP/aulus-portifolio](https://github.com/AulusHZP/aulus-portifolio)
 
-There are several ways of editing your application.
+## Como editar este código?
 
-**Use Lovable**
+Existem várias formas de editar sua aplicação.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/da421a8f-9d55-4101-a2d7-72a349db984d) and start prompting.
+**Usando seu IDE preferido**
 
-Changes made via Lovable will be committed automatically to this repo.
+Para trabalhar localmente, você pode clonar este repositório e fazer as alterações no seu ambiente de desenvolvimento favorito.
 
-**Use your preferred IDE**
+Os únicos requisitos são ter o Node.js e o npm instalados - [instale usando nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Siga estes passos:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Passo 1: Clone o repositório usando a URL Git do projeto.
+git clone https://github.com/AulusHZP/aulus-portifolio.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Passo 2: Navegue até o diretório do projeto.
+cd aulus-portifolio
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Passo 3: Instale as dependências necessárias.
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Passo 4: Inicie o servidor de desenvolvimento com recarregamento automático e pré-visualização instantânea.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**Editando diretamente no GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Navegue até o(s) arquivo(s) desejado(s).
+- Clique no botão "Editar" (ícone de lápis) no canto superior direito da visualização do arquivo.
+- Faça suas alterações e confirme (commit) as mudanças.
 
-**Use GitHub Codespaces**
+**Usando GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Acesse a página principal do seu repositório.
+- Clique no botão "Code" (verde) próximo ao canto superior direito.
+- Selecione a aba "Codespaces".
+- Clique em "New codespace" para iniciar um novo ambiente Codespace.
+- Edite os arquivos diretamente dentro do Codespace, e faça commit e push das alterações quando terminar.
 
-## What technologies are used for this project?
+## Quais tecnologias são usadas neste projeto?
 
-This project is built with:
+Este projeto foi construído utilizando:
 
 - Vite
 - TypeScript
@@ -60,14 +55,6 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Como faço para publicar este projeto?
 
-Simply open [Lovable](https://lovable.dev/projects/da421a8f-9d55-4101-a2d7-72a349db984d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Para publicar seu projeto, você pode usar a plataforma ou serviço de sua preferência que suporte projetos React/Vite. Basta seguir os passos de build e deploy conforme a ferramenta escolhida.
