@@ -1,4 +1,6 @@
-import { Github, Linkedin, Instagram, Mail, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -6,22 +8,22 @@ const ContactSection = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com/aulusbatista",
-      icon: <Github className="w-8 h-8" />,
+      href: "https://github.com/AulusHZP",
+      icon: <FaGithub className="w-8 h-8" />,
       description: "Veja meus projetos e contribuições",
       color: "hover:text-gray-400"
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/aulusbatista",
-      icon: <Linkedin className="w-8 h-8" />,
+      icon: <FaLinkedin className="w-8 h-8" />,
       description: "Conecte-se comigo profissionalmente",
       color: "hover:text-blue-400"
     },
     {
       name: "Instagram",
       href: "https://www.instagram.com/aulusbatista",
-      icon: <Instagram className="w-8 h-8" />,
+      icon: <FaInstagram className="w-8 h-8" />,
       description: "Acompanhe minha jornada",
       color: "hover:text-pink-400"
     }
@@ -31,33 +33,51 @@ const ContactSection = () => {
     <section className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Vamos Conversar
+            Entre em Contato
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Estou sempre aberto para discutir novas oportunidades, projetos interessantes ou simplesmente trocar ideias sobre tecnologia.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8 mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.2 }}
+          viewport={{ once: true }}
+        >
           {socialLinks.map((link, index) => (
             <ContactCard key={link.name} link={link} index={index} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Call to action */}
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <Button
             size="lg"
             className="group bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-elegant hover:shadow-glow transition-all duration-300"
           >
-            <Mail className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+            <FaEnvelope className="w-5 h-5 mr-2 group-hover:animate-bounce" />
             Entre em Contato
-            <ExternalLink className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <FaExternalLinkAlt className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -76,10 +96,17 @@ interface ContactCardProps {
 
 const ContactCard = ({ link, index }: ContactCardProps) => {
   return (
-    <Card 
-      className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-card hover:border-primary/30 animate-fade-in-up"
-      style={{ animationDelay: `${index * 0.2}s` }}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      viewport={{ once: true }}
     >
+      <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-card hover:border-primary/30">
+        <motion.div
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.3 }}
+        >
       <a 
         href={link.href} 
         target="_blank" 
@@ -100,10 +127,12 @@ const ContactCard = ({ link, index }: ContactCardProps) => {
           </p>
         </div>
         
-        {/* Hover effect background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-      </a>
-    </Card>
+          {/* Hover effect background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+        </a>
+        </motion.div>
+      </Card>
+    </motion.div>
   );
 };
 

@@ -1,9 +1,15 @@
-import { Github, Linkedin, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4">
+    <motion.section 
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero"></div>
       
@@ -13,50 +19,79 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         {/* Main name with gradient text */}
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up">
+        <motion.h1 
+          className="text-6xl md:text-8xl font-bold mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <span className="bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
             Áulus Batista
           </span>
-        </h1>
+        </motion.h1>
         
         {/* Subtitle */}
-        <h2 className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <motion.h2 
+          className="text-xl md:text-2xl text-muted-foreground mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           Desenvolvedor Backend em formação, atuando como QA
-        </h2>
+        </motion.h2>
         
         {/* Description */}
-        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <motion.p 
+          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           Sou apaixonado por tecnologia, qualidade e performance. Atualmente me especializo em backend e testes automatizados, 
           buscando entregar soluções robustas e confiáveis.
-        </p>
+        </motion.p>
         
         {/* Social links */}
-        <div className="flex justify-center space-x-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+        <motion.div 
+          className="flex justify-center space-x-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
           <SocialButton 
-            href="https://github.com/aulusbatista" 
-            icon={<Github className="w-6 h-6" />} 
+            href="https://github.com/AulusHZP" 
+            icon={<FaGithub className="w-6 h-6" />} 
             label="GitHub"
           />
           <SocialButton 
             href="https://www.linkedin.com/in/aulusbatista" 
-            icon={<Linkedin className="w-6 h-6" />} 
+            icon={<FaLinkedin className="w-6 h-6" />} 
             label="LinkedIn"
           />
           <SocialButton 
             href="https://www.instagram.com/aulusbatista" 
-            icon={<Instagram className="w-6 h-6" />} 
+            icon={<FaInstagram className="w-6 h-6" />} 
             label="Instagram"
           />
-        </div>
+        </motion.div>
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+      >
+        <motion.div 
+          className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
           <div className="w-1 h-3 bg-primary rounded-full mt-2"></div>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
