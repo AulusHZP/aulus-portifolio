@@ -1,23 +1,25 @@
 
 # Bem-vindo ao projeto Portifólio
+Este é o meu portfólio pessoal, desenvolvido para apresentar meus projetos, habilidades e informações de contato.
+O site foi construído com tecnologias modernas para garantir rapidez, responsividade e um design limpo.
 
-## Informações do Projeto
-
-# Passo 1: Baixe o repositorio
+# Informações do Projeto
+```
+## Passo 1: Baixe o repositorio
 gh repo clone AulusHZP/aulus-portifolio
 
-# Passo 2: Navegue até o diretório do projeto.
+## Passo 2: Navegue até o diretório do projeto.
 cd aulus-portifolio
 
-# Passo 3: Instale as dependências necessárias.
+## Passo 3: Instale as dependências necessárias.
 npm install
 
-# Passo 4: Inicie o servidor de desenvolvimento com recarregamento automático e pré-visualização instantânea.
+## Passo 4: Inicie o servidor de desenvolvimento com recarregamento automático e pré-visualização instantânea.
 npm run dev
 ```
 
 
-## Quais tecnologias são usadas neste projeto?
+# Quais tecnologias são usadas neste projeto?
 
 Este projeto foi construído utilizando:
 
@@ -27,4 +29,9 @@ Este projeto foi construído utilizando:
 - shadcn-ui
 - Tailwind CSS
 
-## Como foi publicado este projeto?
+# Publicação
+  O projeto foi publicado utilizado a plataforma **Vercel**, que oferece o deploy rápido e integração direta com o GitHub.
+  
+## Acesse o site online:
+https://aulushzp.vercel.app/
+
