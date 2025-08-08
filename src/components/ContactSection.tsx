@@ -1,10 +1,70 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaCopy } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
+  const { toast } = useToast();
+
+  const handleContactClick = async () => {
+    const email = 'aulushzp@gmail.com';
+    
+    try {
+      // Verificar se clipboard está disponível
+      if (navigator.clipboard && window.isSecureContext) {
+        // Método moderno para HTTPS
+        await navigator.clipboard.writeText(email);
+        toast({
+          title: "Email copiado!",
+          description: `O email ${email} foi copiado para a área de transferência.`,
+          duration: 3000,
+        });
+      } else {
+        // Fallback para HTTP ou navegadores antigos
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+          toast({
+            title: "Email copiado!",
+            description: `O email ${email} foi copiado para a área de transferência.`,
+            duration: 3000,
+          });
+        } catch (err) {
+          console.error('Erro ao copiar:', err);
+          // Último fallback: mostrar o email para o usuário copiar manualmente
+          toast({
+            title: "Email: aulushzp@gmail.com",
+            description: "Copie o email acima manualmente.",
+            duration: 5000,
+          });
+        }
+        
+        document.body.removeChild(textArea);
+      }
+    } catch (error) {
+      console.error('Erro ao copiar email:', error);
+      
+      // Fallback final: mostrar o email
+      toast({
+        title: "Email: aulushzp@gmail.com",
+        description: "Copie o email acima manualmente.",
+        duration: 5000,
+      });
+    }
+  };
+
   const socialLinks = [
     {
       name: "GitHub",
@@ -41,10 +101,10 @@ const ContactSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Entre em Contato
+            {t('contact.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Estou sempre aberto para discutir novas oportunidades, projetos interessantes ou simplesmente trocar ideias sobre tecnologia.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -70,11 +130,12 @@ const ContactSection = () => {
           viewport={{ once: true }}
         >
           <Button
+            onClick={handleContactClick}
             size="lg"
             className="group bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-elegant hover:shadow-glow transition-all duration-300"
           >
-            <FaEnvelope className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-            Entre em Contato
+            <FaCopy className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+            {t('contact.copyEmail')}
             <FaExternalLinkAlt className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
         </motion.div>

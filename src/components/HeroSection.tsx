@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <motion.section 
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4"
@@ -16,6 +20,16 @@ const HeroSection = () => {
       {/* Floating elements for visual interest */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float"></div>
       <div className="absolute bottom-32 right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
+      
+      {/* Language Selector */}
+      <motion.div 
+        className="absolute top-8 right-8 z-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        <LanguageSelector />
+      </motion.div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         {/* Main name with gradient text */}
@@ -37,7 +51,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Desenvolvedor Backend em formação, atuando como QA
+          {t('hero.subtitle')}
         </motion.h2>
         
         {/* Description */}
@@ -47,8 +61,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          Sou apaixonado por tecnologia, qualidade e performance. Atualmente me especializo em backend e testes automatizados, 
-          buscando entregar soluções robustas e confiáveis.
+          {t('hero.description')}
         </motion.p>
         
         {/* Social links */}
@@ -61,17 +74,17 @@ const HeroSection = () => {
           <SocialButton 
             href="https://github.com/AulusHZP" 
             icon={<FaGithub className="w-6 h-6" />} 
-            label="GitHub"
+            label={t('hero.github')}
           />
           <SocialButton 
             href="https://www.linkedin.com/in/áulus-batista" 
             icon={<FaLinkedin className="w-6 h-6" />} 
-            label="LinkedIn"
+            label={t('hero.linkedin')}
           />
           <SocialButton 
             href="https://www.instagram.com/aulushzp" 
             icon={<FaInstagram className="w-6 h-6" />} 
-            label="Instagram"
+            label={t('hero.instagram')}
           />
         </motion.div>
       </div>
