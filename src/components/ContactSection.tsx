@@ -19,8 +19,8 @@ const ContactSection = () => {
         // Método moderno para HTTPS
         await navigator.clipboard.writeText(email);
         toast({
-          title: "Email copiado!",
-          description: `O email ${email} foi copiado para a área de transferência.`,
+          title: t('toast.emailCopied.title'),
+          description: t('toast.emailCopied.description').replace('{email}', email),
           duration: 3000,
         });
       } else {
@@ -37,16 +37,16 @@ const ContactSection = () => {
         try {
           document.execCommand('copy');
           toast({
-            title: "Email copiado!",
-            description: `O email ${email} foi copiado para a área de transferência.`,
+            title: t('toast.emailCopied.title'),
+            description: t('toast.emailCopied.description').replace('{email}', email),
             duration: 3000,
           });
         } catch (err) {
           console.error('Erro ao copiar:', err);
           // Último fallback: mostrar o email para o usuário copiar manualmente
           toast({
-            title: "Email: aulushzp@gmail.com",
-            description: "Copie o email acima manualmente.",
+            title: t('toast.emailCopyError.title'),
+            description: t('toast.emailCopyError.description'),
             duration: 5000,
           });
         }
@@ -58,8 +58,8 @@ const ContactSection = () => {
       
       // Fallback final: mostrar o email
       toast({
-        title: "Email: aulushzp@gmail.com",
-        description: "Copie o email acima manualmente.",
+        title: t('toast.emailCopyError.title'),
+        description: t('toast.emailCopyError.description'),
         duration: 5000,
       });
     }
@@ -70,21 +70,21 @@ const ContactSection = () => {
       name: "GitHub",
       href: "https://github.com/AulusHZP",
       icon: <FaGithub className="w-8 h-8" />,
-      description: "Veja meus projetos e contribuições",
+      descriptionKey: "contact.github.description",
       color: "hover:text-gray-400"
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/áulus-batista",
       icon: <FaLinkedin className="w-8 h-8" />,
-      description: "Conecte-se comigo profissionalmente",
+      descriptionKey: "contact.linkedin.description",
       color: "hover:text-blue-400"
     },
     {
       name: "Instagram",
       href: "https://www.instagram.com/aulushzp",
       icon: <FaInstagram className="w-8 h-8" />,
-      description: "Acompanhe minha jornada",
+      descriptionKey: "contact.instagram.description",
       color: "hover:text-pink-400"
     }
   ];
@@ -149,13 +149,15 @@ interface ContactCardProps {
     name: string;
     href: string;
     icon: React.ReactNode;
-    description: string;
+    descriptionKey: string;
     color: string;
   };
   index: number;
 }
 
 const ContactCard = ({ link, index }: ContactCardProps) => {
+  const { t } = useLanguage();
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -184,7 +186,7 @@ const ContactCard = ({ link, index }: ContactCardProps) => {
           </h3>
           
           <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-            {link.description}
+            {t(link.descriptionKey)}
           </p>
         </div>
         

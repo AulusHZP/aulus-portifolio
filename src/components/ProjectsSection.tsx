@@ -2,27 +2,30 @@ import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
+  
   const projects = [
     {
       name: "BarberBook",
-      description: "Sistema de agendamento para barbearias com reconhecimento facial e integração de processos BPMN.",
+      descriptionKey: "projects.barberbook.description",
       repoUrl: "https://github.com/AulusHZP/barberbook"
     },
     {
       name: "TruckService", 
-      description: "Sistema para gestão de serviços de caminhões, incluindo controle de manutenção e histórico de serviços.",
+      descriptionKey: "projects.truckservice.description",
       repoUrl: "https://github.com/AulusHZP/TruckService"
     },
     {
       name: "Login-Test",
-      description: "Projeto simples com foco em testes automatizados de login, autenticação e cobertura de testes com ferramentas modernas.",
+      descriptionKey: "projects.logintest.description",
       repoUrl: "https://github.com/AulusHZP/Login-Test"
     },
     {
       name: "Estacionamento",
-      description: "Aplicação para controle de estacionamento com diferentes tipos de vagas e regras de cobrança específicas.",
+      descriptionKey: "projects.estacionamento.description",
       repoUrl: "https://github.com/AulusHZP/Estacionamento"
     }
   ];
@@ -61,10 +64,10 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Meus Projetos
+            {t('projects.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Projetos desenvolvidos com foco em qualidade, performance e boas práticas de desenvolvimento.
+            {t('projects.subtitle')}
           </p>
         </motion.div>
 
@@ -96,7 +99,7 @@ const ProjectsSection = () => {
           >
             <a href="https://github.com/AulusHZP" target="_blank" rel="noopener noreferrer">
               <FaGithub className="w-5 h-5 mr-2" />
-              Ver todos os projetos no GitHub
+              {t('projects.viewAll')}
               <FaExternalLinkAlt className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
           </Button>
@@ -109,13 +112,15 @@ const ProjectsSection = () => {
 interface ProjectCardProps {
   project: {
     name: string;
-    description: string;
+    descriptionKey: string;
     repoUrl: string;
   };
   variants: any;
 }
 
 const ProjectCard = ({ project, variants }: ProjectCardProps) => {
+  const { t } = useLanguage();
+  
   return (
     <motion.div variants={variants}>
       <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-500 hover:shadow-card hover:border-primary/30 h-full">
@@ -130,7 +135,7 @@ const ProjectCard = ({ project, variants }: ProjectCardProps) => {
           </div>
 
           <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300 flex-grow mb-6">
-            {project.description}
+            {t(project.descriptionKey)}
           </p>
 
           {/* Botão como link funcional */}
@@ -146,7 +151,7 @@ const ProjectCard = ({ project, variants }: ProjectCardProps) => {
               rel="noopener noreferrer"
               className="inline-flex items-center"
             >
-              Repositório
+              {t('projects.repository')}
             </a>
           </Button>
         </div>
@@ -157,6 +162,5 @@ const ProjectCard = ({ project, variants }: ProjectCardProps) => {
     </motion.div>
   );
 };
-
 
 export default ProjectsSection;
