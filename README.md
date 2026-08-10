@@ -6,7 +6,7 @@ Este é o repositório do meu portfólio pessoal, um projeto criado com React pa
 
 A versão online deste projeto está hospedada e pode ser acessada através do link abaixo:
 
-➡️ **https://joao-santana.vercel.app/**
+➡️ **https://aulushzp.vercel.app/**
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -25,12 +25,12 @@ Antes de começar, certifique-se de ter o **[Node.js](https://nodejs.org/en/)** 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/JoaoSantanaLopes/Portifolio-Terminal.git
+    git clone https://github.com/AulusHZP/aulus-portifolio.git
     ```
 
 2.  **Acesse o diretório do projeto:**
     ```bash
-    cd nome-do-diretorio
+    cd aulus-portifolio
     ```
 
 3.  **Instale as dependências:**
