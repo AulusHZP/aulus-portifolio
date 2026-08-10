@@ -1,0 +1,77 @@
+.contato-container {
+  color: #e2e8f0;
+  margin-bottom: 10px;
+}
+
+.contato-titulo {
+  color: #a777e3;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.contato-subtitulo {
+  color: #a0aec0;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+.contato-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contato-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: #cbd5e0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.contato-item:hover {
+  color: #a777e3;
+}
+
+.contato-icone {
+  font-size: 1.8rem;
+}
+
+.interactive-email {
+  margin-top: 2.5rem;
+}
+
+.form-divider {
+  border: none;
+  border-top: 1px solid #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.interactive-email p {
+  color: #a0aec0;
+  margin-bottom: 1rem;
+}
+
+.repo-link-style-button {
+  background-color: transparent;
+  border: none; 
+  padding: 0;
+  
+  color: #a777e3;
+  font-family: inherit;
+  font-size: 1.1rem; 
+  font-weight: bold;
+  
+  cursor: pointer;
+  transition: color 0.2s ease;
+  
+  display: inline-flex; 
+  align-items: center;
+}
+
+.repo-link-style-button:hover {
+  color: #c39efc;
+  
+}
